@@ -1,0 +1,36 @@
+{
+  "title": "Times of the Day Sensor",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Create Times of the Day Sensor",
+        "description": "Choose whether each boundary uses a fixed time or a sun event. Offsets are signed minutes (e.g. -15 = 15 minutes earlier, +30 = 30 minutes later). Note: the time fields are only used when mode = time.",
+        "data": {
+          "name": "[%key:common::config_flow::data::name%]",
+          "after_mode": "ON boundary: mode (time/sunrise/sunset)",
+          "after_time": "If mode is time: ON at",
+          "after_offset": "ON offset (minutes, can be negative)",
+          "before_mode": "OFF boundary: mode (time/sunrise/sunset)",
+          "before_time": "If mode is time: OFF at",
+          "before_offset": "OFF offset (minutes, can be negative)"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Edit Times of the Day",
+        "description": "Offsets are signed minutes. Time fields are only used when mode = time.",
+        "data": {
+          "after_mode": "[%key:component::tod::config::step::user::data::after_mode%]",
+          "after_time": "[%key:component::tod::config::step::user::data::after_time%]",
+          "after_offset": "[%key:component::tod::config::step::user::data::after_offset%]",
+          "before_mode": "[%key:component::tod::config::step::user::data::before_mode%]",
+          "before_time": "[%key:component::tod::config::step::user::data::before_time%]",
+          "before_offset": "[%key:component::tod::config::step::user::data::before_offset%]"
+        }
+      }
+    }
+  }
+}
