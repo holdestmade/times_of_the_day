@@ -216,9 +216,10 @@ class TodSensor(BinarySensorEntity):
     @property
     def is_on(self) -> bool:
         """Return True if sensor is on."""
+        now = dt_util.utcnow()
         if self._time_after < self._time_before:
-            return self._time_after <= dt_util.utcnow() < self._time_before
-        return False
+            return self._time_after <= now < self._time_before
+        return now >= self._time_after or now < self._time_before
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
